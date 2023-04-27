@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+    <context:component-scan
+        base-package="ojt.petshop.system" />
+    <mvc:annotation-driven />
+    <mvc:resources mapping="/resources/**"
+        location="/resources/" />
+    <bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <property name="suffix" value=".jsp" />
+        <property name="order" value="1" />
+    </bean>
+    <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        <property name="order" value="0" />
+    </bean>
+    <bean id="tilesConfigurer"
+        class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/layouts/tiles.xml</value>
+                <value>/WEB-INF/layouts/viewLib.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="ds"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"
+            value="com.mysql.jdbc.Driver"></property>
+        <property name="url"
+            value="jdbc:mysql://localhost:3306/pet_list_db"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="#hh@root2023"></property>
+    </bean>
+    <bean id="jt"
+        class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="ds"></property>
+    </bean>
+    <bean id="petDao"
+        class="ojt.petshop.system.dao.impl.PetDAOImpl">
+        <property name="jdbcTemplate" ref="jt"></property>
+    </bean>
+    <bean id="bCryptPasswordEncoder"
+        class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+</beans>
