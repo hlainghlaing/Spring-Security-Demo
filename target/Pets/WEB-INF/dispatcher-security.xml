@@ -6,25 +6,21 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans  
     http://www.springframework.org/schema/beans/spring-beans.xsd  
     http://www.springframework.org/schema/security  
-    http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+    http://www.springframework.org/schema/security/spring-security-5.5.xsd">
 
     <http auto-config="true">
         <intercept-url pattern="/view" access="hasAnyRole('USER', 'ADMIN')" />
         <intercept-url pattern="/new" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/edit" access="hasRole('ADMIN')" />
-        <form-login login-page="/login.jsp"
-            login-processing-url="/login" username-parameter="username"
-            password-parameter="password" default-target-url="/view" />
-        <logout logout-url="/logout" logout-success-url="/login.jsp" />
-        <access-denied-handler error-page="/error" />
+        <intercept-url pattern="/edit" access="hasRole('ADMIN')" />  
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="admin" password="1234" authorities="hasRole('ADMIN')"/>
-                <user name="user" password="1234" authorities="hasRole('User')"/>
+                <user name="admin" password="$2a$10$kNxI4PLIzeommRCIjkJz4Ot6TkBulg5XqJtTuJzl289Pgqd6i9Imu" authorities="ROLE_ADMIN"/>
+                <user name="user" password="$2a$10$kNxI4PLIzeommRCIjkJz4Ot6TkBulg5XqJtTuJzl289Pgqd6i9Imu" authorities="ROLE_USER"/>
             </user-service>
+            <password-encoder ref="bCryptPasswordEncoder" />
         </authentication-provider>
     </authentication-manager>
 </beans:beans>  

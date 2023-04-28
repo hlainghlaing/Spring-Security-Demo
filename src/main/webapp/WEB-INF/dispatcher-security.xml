@@ -12,6 +12,7 @@
         <intercept-url pattern="/view" access="hasAnyRole('USER', 'ADMIN')" />
         <intercept-url pattern="/new" access="hasRole('ADMIN')" />
         <intercept-url pattern="/edit" access="hasRole('ADMIN')" />  
+        <intercept-url pattern="/delete" access="hasRole('ADMIN')" /> 
     </http>
 
     <authentication-manager>

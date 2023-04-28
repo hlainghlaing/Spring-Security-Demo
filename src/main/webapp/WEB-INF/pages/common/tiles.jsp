@@ -10,7 +10,7 @@
 <title><tiles:getAsString name="title" /></title>
 <link rel="stylesheet" type="text/css"
   href="<%=request.getContextPath()%>/resources/css/reset.css" />
-<link rel="stylesheet" 
+<link rel="stylesheet"
   href="<%=request.getContextPath()%>/resources/css/style.css" />
 </head>
 <body>
