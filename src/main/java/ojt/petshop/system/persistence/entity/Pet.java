@@ -1,4 +1,4 @@
-package ojt.petshop.system.persistance.entity;
+package ojt.petshop.system.persistence.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,6 +34,18 @@ public class Pet {
     @Column(name = "hobby")
     private String hobby;
 
+    /**
+     * <h2>Constructor for Pet</h2>
+     * <p>
+     * Constructor for Pet
+     * </p>
+     * 
+     * @param name
+     * @param sex
+     * @param age
+     * @param type
+     * @param hobby
+     */
     public Pet(String name, String sex, String age, String type, String hobby) {
         this.name = name;
         this.sex = sex;
@@ -41,5 +53,4 @@ public class Pet {
         this.type = type;
         this.hobby = hobby;
     }
-
 }
