@@ -44,3 +44,14 @@
     </p>
   </div>
 </div>
+<section class="img-sec">
+  <div class="cmn-inner">
+        <ul class="img-list clearfix">
+      <li><img alt="Pet Image" src="<%= request.getContextPath()%>/resources/img/img_dog1.jpg"></li>
+      <li><img alt="Pet Image" src="<%= request.getContextPath()%>/resources/img/img_cat.jpg"></li>
+      <li><img alt="Pet Image" src="<%= request.getContextPath()%>/resources/img/img_bird.jpg"></li>
+      <li><img alt="Pet Image" src="<%= request.getContextPath()%>/resources/img/img_dog2.jpg"></li>
+      <li><img alt="Pet Image" src="<%= request.getContextPath()%>/resources/img/img_dog3.jpg"></li>
+    </ul>
+  </div>
+</section>

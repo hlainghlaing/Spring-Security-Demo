@@ -149,6 +149,24 @@ th:hover,td:hover {
   float: right;
 }
 
+.img-sec{
+  padding: 30px 0px;
+}
+
+.img-sec .img-list li{
+  float: left;
+  width: 13%;
+  margin-right: 8.75%;
+}
+
+.img-sec .img-list li:last-child{
+  margin-right: 0;
+}
+
+.img-sec .img-list li img{
+  border-radius: 20px;
+}
+
 .footer {
   padding: 50px 0px;
   background-color: #ffa8a8;
