@@ -38,7 +38,7 @@ public class MainController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView saveContact(@ModelAttribute Pet petObj) {
         petService.doSave(petObj);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/view");
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -53,13 +53,18 @@ public class MainController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ModelAndView updateContact(@ModelAttribute Pet petObj) {
         petService.doUpdate(petObj);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/view");
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public ModelAndView deleteContact(HttpServletRequest request) {
         int id = Integer.parseInt(request.getParameter("id"));
         petService.doDelete(id);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/view");
+    }
+    
+    @RequestMapping(value = "/error")
+    public String error() {
+        return "access-denied";
     }
 }

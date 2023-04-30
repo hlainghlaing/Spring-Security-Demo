@@ -3,6 +3,7 @@ package ojt.petshop.system.persistence.dao.impl;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -21,7 +22,7 @@ import ojt.petshop.system.persistence.entity.Pet;
  * @author Khin Yadanar Hlaing
  *
  */
-@SuppressWarnings("deprecation")
+
 @Repository
 public class PetDAOImpl implements PetDAO {
 

@@ -17,18 +17,16 @@
             access="hasRole('ADMIN')" />
         <intercept-url pattern="/delete"
             access="hasRole('ADMIN')" />
+        <form-login login-page="/login.jsp"
+            login-processing-url="/login" username-parameter="username"
+            password-parameter="password" default-target-url="/view" />
+        <logout logout-url="/logout"
+            logout-success-url="/login.jsp" />
+        <access-denied-handler error-page="/error" />
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="admin"
-                    password="$2a$10$kNxI4PLIzeommRCIjkJz4Ot6TkBulg5XqJtTuJzl289Pgqd6i9Imu"
-                    authorities="ROLE_ADMIN" />
-                <user name="user"
-                    password="$2a$10$kNxI4PLIzeommRCIjkJz4Ot6TkBulg5XqJtTuJzl289Pgqd6i9Imu"
-                    authorities="ROLE_USER" />
-            </user-service>
+        <authentication-provider user-service-ref="userService">
             <password-encoder
                 ref="bCryptPasswordEncoder" />
         </authentication-provider>
